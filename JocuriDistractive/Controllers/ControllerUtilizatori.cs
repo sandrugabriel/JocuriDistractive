@@ -44,20 +44,31 @@ namespace JocuriDistractive.Controllers
             streamReader.Close();
         }
 
-        public bool verificareCont(string email, string parola)
+        public Utilizator verificareCont(string email, string parola)
         {
 
             for(int i=0;i<utilizatori.Count;i++)
             {
 
                 if (utilizatori[i].getemail().Equals(email) && utilizatori[i].getpadd().Equals(parola))
-                    return true;
+                    return utilizatori[i];
 
             }
 
-            return false;
+            return null;
         }
 
+        public string getNumebyEmail(string email)
+        {
 
+            for (int i = 0; i < utilizatori.Count; i++)
+            {
+
+                if (utilizatori[i].getemail().Equals(email))
+                    return utilizatori[i].getnume();
+
+            }
+            return null;
+        }
     }
 }

@@ -109,13 +109,18 @@ namespace JocuriDistractive.Panel_uri
             string email = txtEmail.Text;
             string parola = txtParola.Text;
 
-            if (controllerUtilizatori.verificareCont(email, parola))
+            if (controllerUtilizatori.verificareCont(email, parola) != null)
             {
+                this.form.removePnl("pnlLogare");
+                this.form.Controls.Add(new pnlHome(this.form,controllerUtilizatori.verificareCont(email,parola)));
 
             }
             else
-                MessageBox.Show("Nu ati introdus corect email / parola", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+            {
+                MessageBox.Show("Date de autentificare invalide!", "Eroare", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtParola.Text = "";
+                txtEmail.Text = "";
+            }
         }
 
 
