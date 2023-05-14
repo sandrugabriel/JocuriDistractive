@@ -72,6 +72,12 @@
     <Compile Include="Mockups\MockupLogin.Designer.cs">
       <DependentUpon>MockupLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mockups\MockupSarpe.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupSarpe.Designer.cs">
+      <DependentUpon>MockupSarpe.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Itemi.cs" />
     <Compile Include="Models\Rezultat.cs" />
     <Compile Include="Models\Utilizator.cs" />
@@ -82,6 +88,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Panel-uri\pnlLogare.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panel-uri\pnlSarpe.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
@@ -97,6 +106,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Mockups\MockupLogin.resx">
       <DependentUpon>MockupLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\MockupSarpe.resx">
+      <DependentUpon>MockupSarpe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

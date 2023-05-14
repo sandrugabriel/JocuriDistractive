@@ -137,9 +137,18 @@ namespace JocuriDistractive.Panel_uri
             this.btnSarpe.Size = new System.Drawing.Size(226, 93);
             this.btnSarpe.Text = "SARPE EDUCATIV";
             this.btnSarpe.BackColor = System.Drawing.ColorTranslator.FromHtml("#5F7ADB");
+            this.btnSarpe.Click += new EventHandler(btnSarpe_Click);
 
             creeateTable(listGhiceste, controllerRezultate.getCrescGhiceste());
             creeateTable(lstSarpe,controllerRezultate.getCrescSarpe());
+        }
+
+        private void btnSarpe_Click(object sender, EventArgs e)
+        {
+
+            this.form.removePnl("pnlHome");
+            this.form.Controls.Add(new pnlSarpe(form, utilizator));
+
         }
 
         private void btnGhiceste_Click(object sender, EventArgs e)
