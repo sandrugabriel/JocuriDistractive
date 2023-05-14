@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -119,7 +120,8 @@ namespace JocuriDistractive.Panel_uri
             if (result == DialogResult.OK)
             {
 
-
+                this.form.removePnl("pnlSarpe");
+                this.form.Controls.Add(new pnlIntrebari(form, utilizator, punctaj));
 
             }
             else

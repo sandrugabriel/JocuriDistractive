@@ -18,8 +18,8 @@ namespace JocuriDistractive
         {
             InitializeComponent();
 
-            Utilizator a = new Utilizator("popescu.petre@ojti2023.ro;otipopescu;abc123@A");
-            this.Controls.Add(new pnlHome(this,a));
+         //   Utilizator a = new Utilizator("popescu.petre@ojti2023.ro;otipopescu;abc123@A");
+            this.Controls.Add(new pnlLogare(this));
 
         }
 
