@@ -128,6 +128,7 @@ namespace JocuriDistractive.Panel_uri
             this.btnGhiceste.Size = new System.Drawing.Size(226, 93);
             this.btnGhiceste.Text = "GHICESTE";
             this.btnGhiceste.BackColor = System.Drawing.ColorTranslator.FromHtml("#5F7ADB");
+            this.btnGhiceste.Click += new EventHandler(btnGhiceste_Click);
 
             // btnSarpe
             this.btnSarpe.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 16.2F, System.Drawing.FontStyle.Regular);
@@ -141,6 +142,13 @@ namespace JocuriDistractive.Panel_uri
             creeateTable(lstSarpe,controllerRezultate.getCrescSarpe());
         }
 
+        private void btnGhiceste_Click(object sender, EventArgs e)
+        {
+
+            this.form.removePnl("pnlHome");
+            this.form.Controls.Add(new pnlGhiceste(form, utilizator));
+
+        }
 
         public void creeateTable(ListView listView, List<Rezultat> listRezultat)
         {
