@@ -18,8 +18,6 @@ namespace JocuriDistractive.Panel_uri
         Form1 form;
         Utilizator utilizator;
 
-        private string t;
-
         Label lblPunctaj;
         PictureBox pctImagine;
         Button btnA;
@@ -65,7 +63,6 @@ namespace JocuriDistractive.Panel_uri
             rand = new Random();
             int poz = rand.Next(0,cuvante.Count-1);
             cuvantGhicit = cuvante[poz];
-            t = initializere();
             // pnlGhiceste
             this.form.Size = new System.Drawing.Size(906, 610);
             this.Size = new System.Drawing.Size(906, 591);
@@ -391,8 +388,6 @@ namespace JocuriDistractive.Panel_uri
             this.lblCuvant.Size = new System.Drawing.Size(408, 36);
             this.lblCuvant.TabIndex = 28;
             this.lblCuvant.Text = initializere();
-
-            MessageBox.Show(cuvantGhicit);
 
             this.btnA.Click += new EventHandler(btns_Click);
             this.btnB.Click += new EventHandler(btns_Click);
