@@ -46,12 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ControllerRezultate.cs" />
     <Compile Include="Controllers\ControllerUtilizatori.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mockups\MockupHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mockups\MockupHome.Designer.cs">
+      <DependentUpon>MockupHome.cs</DependentUpon>
     </Compile>
     <Compile Include="Mockups\MockupLogin.cs">
       <SubType>Form</SubType>
@@ -62,6 +69,9 @@
     <Compile Include="Models\Itemi.cs" />
     <Compile Include="Models\Rezultat.cs" />
     <Compile Include="Models\Utilizator.cs" />
+    <Compile Include="Panel-uri\pnlHome.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Panel-uri\pnlLogare.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -69,6 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mockups\MockupHome.resx">
+      <DependentUpon>MockupHome.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Mockups\MockupLogin.resx">
       <DependentUpon>MockupLogin.cs</DependentUpon>

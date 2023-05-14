@@ -1,4 +1,5 @@
-﻿using JocuriDistractive.Panel_uri;
+﻿using JocuriDistractive.Models;
+using JocuriDistractive.Panel_uri;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,8 +18,26 @@ namespace JocuriDistractive
         {
             InitializeComponent();
 
-            this.Controls.Add(new pnlLogare(this));
+            Utilizator a = new Utilizator("popescu.petre@ojti2023.ro;otipopescu;abc123@A");
+            this.Controls.Add(new pnlHome(this,a));
 
         }
+
+        public void removePnl(string pnl)
+        {
+
+            Control control = null;
+
+            foreach(Control control1 in this.Controls)
+            {
+                if (control1.Name.Equals(pnl))
+                {
+                    control = control1;
+                }
+            }
+
+            this.Controls.Remove(control);
+        }
+
     }
 }
