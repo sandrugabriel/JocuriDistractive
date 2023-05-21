@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace JocuriDistractive.Panel_uri
 {
-    internal class pnlIntrebari : Panel
+    internal class PnlIntrebari : Panel
     {
 
         Form1 form;
@@ -28,7 +28,7 @@ namespace JocuriDistractive.Panel_uri
         ControllerItemi controllerItemi;
         ControllerRezultate controllerRezultate;
 
-        public pnlIntrebari(Form1 form1, Utilizator utilizator1, int punctaj1)
+        public PnlIntrebari(Form1 form1, Utilizator utilizator1, int punctaj1)
         {
             form = form1;
             utilizator = utilizator1;
@@ -38,7 +38,7 @@ namespace JocuriDistractive.Panel_uri
             controllerRezultate = new ControllerRezultate();
 
             intrebare = controllerItemi.getItemRandom();
-
+            this.form.btnSarpe.Visible = false;
             // pnlIntrebare
             this.form.Size = new System.Drawing.Size(719, 630);
             this.Size = new System.Drawing.Size(719, 630);
@@ -122,6 +122,17 @@ namespace JocuriDistractive.Panel_uri
 
         private void btnInregistrare_Click(object sender, EventArgs e)
         {
+            if(btnsRadion() == null) {
+                MessageBox.Show("Nu ai raspuns!", "Ghinion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string textul = controllerRezultate.generareId().ToString() + ";" + 1.ToString() + ";" + utilizator.getemail() + ";" + punctaj.ToString();
+                controllerRezultate.save(textul);
+                this.form.removePnl("pnlSarpe");
+                this.form.removePnl("pnlIntrebari");
+                this.form.btnSarpe.Visible = true;
+                this.form.Controls.Add(new PnlHome(form, utilizator));
+                return;
+            }
+
 
             if (btnsRadion().Name.Equals("btn" + intrebare.getRaspuCorect().ToString()))
             {
@@ -132,7 +143,8 @@ namespace JocuriDistractive.Panel_uri
                 controllerRezultate.save(textul);
                 this.form.removePnl("pnlSarpe");
                 this.form.removePnl("pnlIntrebari");
-                this.form.Controls.Add(new pnlHome(form, utilizator));
+                this.form.btnSarpe.Visible = true;
+                this.form.Controls.Add(new PnlHome(form, utilizator));
 
             }
             else
@@ -142,7 +154,8 @@ namespace JocuriDistractive.Panel_uri
                 controllerRezultate.save(textul);
                 this.form.removePnl("pnlSarpe");
                 this.form.removePnl("pnlIntrebari");
-                this.form.Controls.Add(new pnlHome(form, utilizator));
+                this.form.btnSarpe.Visible = true;
+                this.form.Controls.Add(new PnlHome(form, utilizator));
             }
                 
 

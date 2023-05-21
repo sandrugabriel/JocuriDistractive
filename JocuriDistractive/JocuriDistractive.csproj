@@ -35,6 +35,16 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Reactive, Version=6.0.0.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.6.0.0\lib\net472\System.Reactive.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,6 +54,7 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\ControllerItemi.cs" />
@@ -88,23 +99,29 @@
     <Compile Include="Models\Itemi.cs" />
     <Compile Include="Models\Rezultat.cs" />
     <Compile Include="Models\Utilizator.cs" />
-    <Compile Include="Panel-uri\pnlGhiceste.cs">
+    <Compile Include="Panel-uri\PnlGameSarpe.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Panel-uri\pnlHome.cs">
+    <Compile Include="Panel-uri\PnlGhiceste.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Panel-uri\pnlIntrebari.cs">
+    <Compile Include="Panel-uri\PnlHome.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Panel-uri\pnlLogare.cs">
+    <Compile Include="Panel-uri\PnlIntrebari.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Panel-uri\pnlSarpe.cs">
+    <Compile Include="Panel-uri\PnlLogare.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SnakeGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SnakeGame.Designer.cs">
+      <DependentUpon>SnakeGame.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -132,6 +149,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SnakeGame.resx">
+      <DependentUpon>SnakeGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

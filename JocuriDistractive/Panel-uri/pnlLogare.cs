@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace JocuriDistractive.Panel_uri
 {
-    internal class pnlLogare:Panel
+    internal class PnlLogare:Panel
     {
 
         Form1 form;
@@ -24,7 +24,7 @@ namespace JocuriDistractive.Panel_uri
 
         ControllerUtilizatori controllerUtilizatori;
 
-        public pnlLogare(Form1 form1)
+        public PnlLogare(Form1 form1)
         {
 
             form = form1;
@@ -112,7 +112,7 @@ namespace JocuriDistractive.Panel_uri
             if (controllerUtilizatori.verificareCont(email, parola) != null)
             {
                 this.form.removePnl("pnlLogare");
-                this.form.Controls.Add(new pnlHome(this.form,controllerUtilizatori.verificareCont(email,parola)));
+                this.form.Controls.Add(new PnlHome(this.form,controllerUtilizatori.verificareCont(email,parola)));
 
             }
             else
