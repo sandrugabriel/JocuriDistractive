@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace JocuriDistractive.Panel_uri
 {
-    internal class pnlGhiceste:Panel
+    internal class PnlGhiceste:Panel
     {
 
         Form1 form;
@@ -53,7 +53,7 @@ namespace JocuriDistractive.Panel_uri
 
         ControllerRezultate controllerRezultate; 
 
-        public pnlGhiceste(Form1 form1, Utilizator utilizator1)
+        public PnlGhiceste(Form1 form1, Utilizator utilizator1)
         {
             form = form1;
             utilizator = utilizator1;
@@ -68,6 +68,7 @@ namespace JocuriDistractive.Panel_uri
             this.Size = new System.Drawing.Size(906, 591);
             this.Name = "pnlGhiceste";
             this.Text = "Ghiceste cuvant";
+            this.form.btnSarpe.Visible = false;
 
             this.lblPunctaj = new System.Windows.Forms.Label();
             this.pctImagine = new System.Windows.Forms.PictureBox();
@@ -474,7 +475,8 @@ namespace JocuriDistractive.Panel_uri
                     string textul = controllerRezultate.generareId().ToString() + ";" + 0.ToString() + ";" + utilizator.getemail() + ";" + 0.ToString();
                     controllerRezultate.save(textul);
                     this.form.removePnl("pnlGhiceste");
-                    this.form.Controls.Add(new pnlHome(form, utilizator));
+                    this.form.btnSarpe.Visible = true;
+                    this.form.Controls.Add(new PnlHome(form, utilizator));
                 }
                 else
                 pctImagine.Image = Image.FromFile(Application.StartupPath + @"/StadiiFloare/"+ nr.ToString() +".png");
@@ -492,7 +494,8 @@ namespace JocuriDistractive.Panel_uri
                 int rez = 100 - (4 * g);
                 string textul = controllerRezultate.generareId().ToString() + ";" + 0.ToString() + ";" + utilizator.getemail() + ";" + rez.ToString();
                 controllerRezultate.save(textul);
-                this.form.Controls.Add(new pnlHome(form, utilizator));
+                this.form.btnSarpe.Visible = true;
+                this.form.Controls.Add(new PnlHome(form, utilizator));
             }
             int rez1 = 100 - (4 * g);
 

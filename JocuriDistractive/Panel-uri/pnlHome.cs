@@ -3,13 +3,14 @@ using JocuriDistractive.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reactive.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JocuriDistractive.Panel_uri
 {
-    internal class pnlHome:Panel
+    internal class PnlHome:Panel
     {
 
         Utilizator utilizator;
@@ -24,23 +25,28 @@ namespace JocuriDistractive.Panel_uri
         Label lblScorGhiceste;
         Label lblScorSarpe;
         Button btnGhiceste;
-        Button btnSarpe;
+
+
+
 
         Form1 form;
 
-        public pnlHome(Form1 form1, Utilizator utilizator1)
+        public PnlHome(Form1 form1, Utilizator utilizator1)
         {
             form = form1;
             utilizator = utilizator1;
             controllerRezultate = new ControllerRezultate();
             controllerUtilizatori = new ControllerUtilizatori();
-
+            this.form.btnSarpe.Visible = true;
+            this.form.btnSarpe.BringToFront();
+            this.SendToBack();
             // pnlHome
             this.form.Size = new System.Drawing.Size(1185, 656);
             this.ClientSize = new System.Drawing.Size(1185, 656);
             this.Name = "pnlHome";
             this.Text = "Home";
             this.BackColor = System.Drawing.ColorTranslator.FromHtml("#2E3239");
+            this.SendToBack();
 
             this.pctBack = new System.Windows.Forms.PictureBox();
             this.lblTile = new System.Windows.Forms.Label();
@@ -50,9 +56,7 @@ namespace JocuriDistractive.Panel_uri
             this.lblScorGhiceste = new System.Windows.Forms.Label();
             this.lblScorSarpe = new System.Windows.Forms.Label();
             this.btnGhiceste = new System.Windows.Forms.Button();
-            this.btnSarpe = new System.Windows.Forms.Button();
 
-            this.Controls.Add(this.btnSarpe);
             this.Controls.Add(this.btnGhiceste);
             this.Controls.Add(this.lblScorSarpe);
             this.Controls.Add(this.lblScorGhiceste);
@@ -130,32 +134,54 @@ namespace JocuriDistractive.Panel_uri
             this.btnGhiceste.BackColor = System.Drawing.ColorTranslator.FromHtml("#5F7ADB");
             this.btnGhiceste.Click += new EventHandler(btnGhiceste_Click);
 
-            // btnSarpe
-            this.btnSarpe.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 16.2F, System.Drawing.FontStyle.Regular);
-            this.btnSarpe.ForeColor = System.Drawing.Color.White;
-            this.btnSarpe.Location = new System.Drawing.Point(790, 503);
-            this.btnSarpe.Size = new System.Drawing.Size(226, 93);
-            this.btnSarpe.Text = "SARPE EDUCATIV";
-            this.btnSarpe.BackColor = System.Drawing.ColorTranslator.FromHtml("#5F7ADB");
-            this.btnSarpe.Click += new EventHandler(btnSarpe_Click);
 
             creeateTable(listGhiceste, controllerRezultate.getCrescGhiceste());
             creeateTable(lstSarpe,controllerRezultate.getCrescSarpe());
+
+            /*   var buttonClicks = Observable.FromEventPattern(btnSarpe, nameof(Button.Click));
+
+               // Subscribe to the button click event
+               buttonClicks.Subscribe(_ =>
+               {
+                   // Handle button click event
+                   intrare();
+
+                   MessageBox.Show("Intrat");
+               });
+
+               */
+            this.form.btnSarpe.Visible = true;
+            this.SendToBack();
+        }
+
+        private void intrare()
+        {
+            DialogResult dialogResult = MessageBox.Show("Vrei sa incepi acum?", "Joc Sarpe", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.OK)
+            {
+                this.form.btnSarpe.Visible = false;
+                this.form.removePnl("pnlHome");
+
+                this.form.initDown();
+        
+
+                this.form.Controls.Add(new PnlGameSarpe(this.form, utilizator));
+
+            }
+
         }
 
         private void btnSarpe_Click(object sender, EventArgs e)
         {
 
-            this.form.removePnl("pnlHome");
-            this.form.Controls.Add(new pnlSarpe(form, utilizator));
-
+           
         }
 
         private void btnGhiceste_Click(object sender, EventArgs e)
         {
 
             this.form.removePnl("pnlHome");
-            this.form.Controls.Add(new pnlGhiceste(form, utilizator));
+            this.form.Controls.Add(new PnlGhiceste(form, utilizator));
 
         }
 
